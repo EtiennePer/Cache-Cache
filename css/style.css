@@ -1,0 +1,35 @@
+.pinataHider {
+  display: block;
+  position: absolute; /* or absolute */
+  top: 50%;
+  left: 50%;
+}
+
+#pinataImg {
+  position:absolute;
+  opacity: 0;
+  width: 2rem;
+  height: 2rem;
+}
+
+
+.svg{
+  pointer-events: fill;
+}
+
+#visibleTimer {
+  display: block;
+  margin: 50px auto;
+}
+
+#loader
+{ fill: #0088cc }
+
+#border
+{ fill: #00517a }
+
+#hiddenTimer {
+	visibility: hidden;
+	height: 0px;
+	width: 0px;
+}
