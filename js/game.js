@@ -14,8 +14,8 @@ function launchGame(){
 function move(imgPinata,divPinata){
     //divPinata.style.top = Math.random() * 100+'%';
     //divPinata.style.left = Math.random() * 100+'%';
-    var newStyle = 'transform: translate3d('+Math.random() *  document.body.clientWidth+'px,'
-      + Math.random() *  document.body.clientHeight +'px,0px);';
+    var newStyle = 'transform: translate3d('+Math.random() *  100+'px,'
+      + Math.random() * 100 +'px,0px);';
       + 'transform:rotate('+Math.random() * 360+'deg);'
       + 'display: inline-block;'
     divPinata.setAttribute('style',newStyle);
