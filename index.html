@@ -10,12 +10,16 @@
   <script src="./js/pinataAnimation.js"></script>
 </head>
 <body>
-
   <img id="pinataImg" src="./images/Fortnite_llama_pinata.png"/>
 
    <div href="#" class='pinataHider'>
      <a class="waves-effect waves-light btn">THIS IS THE HIDIND BUTTON</a>
    </div>
 
+	<svg id="tim" class="hiddenTimer" width="250" height="250" viewbox="0 0 250 250">
+	  <path id="border" transform="translate(125, 125)"/>
+	  <path id="loader" transform="translate(125, 125) scale(.84)"/>
+	</svg>
+  <img src="./images/Fortnite_llama_pinata.svg" class="imgSvg" alt="Pinata_EasterEgg" height="42" width="42" onclick="launchGame()"/>
 </body>
 </html>
