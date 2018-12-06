@@ -1,0 +1,24 @@
+.pinataHider {
+  display: block;
+  position: relative; /* or absolute */
+  top: 50%;
+  left: 50%;
+}
+
+.pinataHider:hover + .pinata {
+  display:block;
+}
+
+.pinata{
+  display:none;
+  width: 10rem;
+  height: 10rem;
+  position: relative; /* or absolute */
+  top: 50%;
+  left: 50%;
+}
+
+#pinataImg {
+  width: 4rem;
+  height: 4rem;
+}
