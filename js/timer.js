@@ -15,13 +15,13 @@ function Timer(loader, border, timerID, roundTime) {
 		, x = Math.sin( r ) * 125
 		, y = Math.cos( r ) * - 125
 		, mid = ( ongle > 180 ) ? 1 : 0
-		, anim = 'M 0 0 v -125 A 125 125 1 ' 
-			   + mid + ' 1 ' 
-			   +  x  + ' ' 
+		, anim = 'M 0 0 v -125 A 125 125 1 '
+			   + mid + ' 1 '
+			   +  x  + ' '
 			   +  y  + ' z';
-	 
+
 	  loader.setAttribute( 'd', anim );
-	  border.setAttribute( 'd', anim );	
+	  border.setAttribute( 'd', anim );
 	};
 	this.reset = function(){
 	this.countDownTime = new Date().getTime()+this.roundTime;
@@ -31,17 +31,29 @@ function Timer(loader, border, timerID, roundTime) {
 function timerUpdate(t, wavecounter){
 	// Get current time
     var now = new Date().getTime();
-    
+
     // Find the distance between now and the count down date
     var distance = t.countDownTime - now;
-   
+
     let distance2 = Math.abs(distance - t.roundTime);
     let angle = distance2* (360/t.roundTime);
-    
-    // If the count down is over, write some text 
+
+    // If the count down is over, write some text
     if (distance < 0) {
 		t.reset();
 		wavecounter=wavecounter+1;
+
+
+      var newPinata = new Object();
+      newPinata.life = 5;
+      newPinata.img = document.createElement("IMG");
+      newPinata.img.src="./images/Fortnite_llama_pinata.svg";
+      newPinata.img.id="pinataImg"+id;
+      newPinata.img.className="pinataImg";
+      id+=1;
+      document.body.appendChild(newPinata.img);
+      pinatas.push(newPinata);
+      console.log(pinatas)
     }
 	t.draw(angle);
 	return wavecounter;

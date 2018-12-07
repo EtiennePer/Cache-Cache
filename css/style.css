@@ -11,7 +11,10 @@
   width: 2rem;
   height: 2rem;
 }
-
+.pinataImg {
+  width: 2rem;
+  height: 2rem;
+}
 
 .svg{
   pointer-events: fill;
@@ -34,4 +37,11 @@
 	visibility: hidden;
 	height: 0px;
 	width: 0px;
+}
+
+.boutonHelp {
+  font-style: bold;
+  color:red;
+  top:0%
+  left:0%
 }
