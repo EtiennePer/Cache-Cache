@@ -1,48 +1,77 @@
 
 var pinatas = [];
 var wavecounter = 0;
+var id = 2;
 
 function launchGame(){
-  var t = new Timer(document.getElementById('loader'), document.getElementById('border'), "tim", 1000);
+  var t = new Timer(document.getElementById('loader'), document.getElementById('border'), "tim", 3000);
+
+  var maPinata = new Object();
+  maPinata.life = 5;
+  maPinata.img = $('#pinataImg');
+  pinatas.push(maPinata);
 
   var x = setInterval(function() {
 
+    if(pinatas == []){
+        clearInterval(x);
+    }
+    if (wavecounter / 120 == 0 && wavecounter != 0){
+      // new bouton ALED
+      var boutonHelp = document.createElement("button");
+      boutonHelp.value ="Abandonner";
+      boutonHelp.className="boutonHelp";
+      document.body.appendChild(boutonHelp);
+    }
+    console.log(wavecounter)
+    console.log(wavecounter % 10 == 0)
     wavecounter = timerUpdate(t, wavecounter);
 
-    // Simulate click on the pinata
-    $('#pinataImg').click();
+    pinatas.forEach(function(pin) {
+      // Simulate click on the pinata for make it move
+      move(pin.img);
+    });
+
   }, 100);
 }
 
-function move(imgPinata){
-    // var newStyle = 'transform: translate3d('++'px,'
-    //   + Math.random() * 100 +'px,0px);';
-    //   + 'transform:rotate('+Math.random() * 360+'deg);'
-    //   + 'display: inline-block; opacity: 1;'
-    // imgPinata.setAttribute('style',newStyle);
+function move(pinata){
+  var rd_x = Math.random() *  250;
+  var rd_y = Math.random() *  250;
+  var rd_plusormin = Math.floor(Math.random() * 2);
 
-    // Select a random value to moove the pinata
-    var rd_x = Math.random() *  50;
-    var rd_y = Math.random() *  50;
-    var rd_plusormin = Math.random() *  2;
+  var screenWidth = $(window).width() - 100;
+  var screenHeight = $(window).height() - 100;
 
-    var actual_top = $('#pinataImg').css('top');
-    var actual_left = $('#pinataImg').css('left');
+  var actual_top = $(pinata).css('top');
+  var actual_left = $(pinata).css('left');
 
-    if(rd_plusormin == 0){
-      var new_top = actual_top + rd_x;
-      var new_left = actual_left + rd_y;
-    }
-    else{
-      var new_top = actual_top - rd_x;
-      var new_left = actual_left - rd_y;
-    }
+  if(rd_plusormin == 0){
+    var new_top = parseInt(actual_top) + rd_x;
+    var new_left = parseInt(actual_left) + rd_y;
+  }else {
+    var new_top = parseInt(actual_top) - rd_x;
+    var new_left = parseInt(actual_left) - rd_y;
+  }
 
-    // Retrieve and change pinata's style
-    $('#pinataImg').animate({
-        top: new_top + '%',
-        left: new_left + '%',
-        opacity: '1'
-      }, 800, function() {
-      });
+  // Check boundaries
+  if(new_top <= 0 || new_top >= screenHeight){
+    new_top = actual_top;
+  }
+  if(new_left <= 0 || new_left >= screenWidth){
+    new_left = actual_left;
+  }
+
+  // Retrieve and change pinata's style
+  $(pinata).animate({
+      top: new_top,
+      left: new_left,
+      opacity: '1'
+    }, 800, function() {
+    });
+}
+
+
+function pleaseStopGame(){
+  pinatas = [];
 }

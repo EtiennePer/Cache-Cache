@@ -84,39 +84,8 @@ $(function() {
         });
     }
     else{
-      var rd_x = Math.random() *  250;
-      var rd_y = Math.random() *  250;
-      var rd_plusormin = Math.floor(Math.random() * 2);
+      //Enlever un point de vie
 
-      var screenWidth = $(window).width() - 100;
-      var screenHeight = $(window).height() - 100;
-
-      var actual_top = $('#pinataImg').css('top');
-      var actual_left = $('#pinataImg').css('left');
-
-      if(rd_plusormin == 0){
-        var new_top = parseInt(actual_top) + rd_x;
-        var new_left = parseInt(actual_left) + rd_y;
-      }else {
-        var new_top = parseInt(actual_top) - rd_x;
-        var new_left = parseInt(actual_left) - rd_y;
-      }
-
-      // Check boundaries
-      if(new_top <= 0 || new_top >= screenHeight){
-        new_top = actual_top;
-      }
-      if(new_left <= 0 || new_left >= screenWidth){
-        new_left = actual_left;
-      }
-
-      // Retrieve and change pinata's style
-      $('#pinataImg').animate({
-          top: new_top,
-          left: new_left,
-          opacity: '1'
-        }, 800, function() {
-        });
     }
   });
 });
