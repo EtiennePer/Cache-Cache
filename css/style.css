@@ -12,8 +12,9 @@
   height: 2rem;
 }
 .pinataImg {
-  width: 2rem;
-  height: 2rem;
+  width: 10rem;
+  height: 10rem;
+  position: absolute;
 }
 
 .svg{

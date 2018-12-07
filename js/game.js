@@ -23,19 +23,18 @@ function launchGame(){
       boutonHelp.className="boutonHelp";
       document.body.appendChild(boutonHelp);
     }
-    console.log(wavecounter)
-    console.log(wavecounter % 10 == 0)
     wavecounter = timerUpdate(t, wavecounter);
 
     pinatas.forEach(function(pin) {
       // Simulate click on the pinata for make it move
       move(pin.img);
+	  console.log("ID: "+pin.img.id)
     });
 
-  }, 100);
+  }, 1000);
 }
 
-function move(pinata){
+function move(pi){
   var rd_x = Math.random() *  250;
   var rd_y = Math.random() *  250;
   var rd_plusormin = Math.floor(Math.random() * 2);
@@ -43,8 +42,8 @@ function move(pinata){
   var screenWidth = $(window).width() - 100;
   var screenHeight = $(window).height() - 100;
 
-  var actual_top = $(pinata).css('top');
-  var actual_left = $(pinata).css('left');
+  var actual_top = $(pi).css('top');
+  var actual_left = $(pi).css('left');
 
   if(rd_plusormin == 0){
     var new_top = parseInt(actual_top) + rd_x;
@@ -63,7 +62,7 @@ function move(pinata){
   }
 
   // Retrieve and change pinata's style
-  $(pinata).animate({
+  $(pi).animate({
       top: new_top,
       left: new_left,
       opacity: '1'
