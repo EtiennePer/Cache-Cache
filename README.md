@@ -17,3 +17,4 @@ La piñata change de couleur selon les "dégâts" infligés.
 Si il reste au moins une piñata avant la fin du décompte, une autre sera crée, jusqu'à que toutes soient éliminés.
 Au bout de 4 tours, un bouton "Abandonner" sera dispobible.
 Une animation terminera le mini-jeu quand il ne reste plus aucunes piñata.
+Nous n'avons pas eu le temps de nous occuper du responsive mobile.
