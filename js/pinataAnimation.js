@@ -7,15 +7,11 @@ $(function() {
   var discovered = false;
   var clicked = false;
 
-  $('#testSvg').click(function(){
-    console.log('test');
-  });
   // When the button is hover (discover the pinata a little)
   $('.pinataHider').mouseover(function() {
 
     if (discovered == false) {
       discovered = true;
-
       var rd = Math.floor(Math.random() * 4);
 
       // Choose a random animation
@@ -70,9 +66,51 @@ $(function() {
         })
         .animate({
           width: '10rem',
-          height: '10rem'
+          height: '10rem',
+          opacity: '1'
         }, 800, function() {
           //callback
+          launchGame();
+        });
+    }
+    else{
+      var rd_x = Math.random() *  250;
+      var rd_y = Math.random() *  250;
+      var rd_plusormin = Math.floor(Math.random() * 2);
+
+      var screenWidth = $(window).width();
+      var screenHeight = $(window).height();
+
+      var actual_top = $('#pinataImg').css('top');
+      var actual_left = $('#pinataImg').css('left');
+
+      console.log('rd_plusormin = ' + rd_plusormin);
+
+      if(rd_plusormin == 0){
+        var new_top = parseInt(actual_top) + rd_x;
+        var new_left = parseInt(actual_left) + rd_y;
+      }else {
+        var new_top = parseInt(actual_top) - rd_x;
+        var new_left = parseInt(actual_left) - rd_y;
+      }
+
+      // Check boundaries
+      if(new_top <= 0 || new_top >= screenHeight){
+        new_top = actual_top;
+      }
+      if(new_left <= 0 || new_left >= screenWidth){
+        new_left = actual_left;
+      }
+      console.log('actual top = ' + actual_top);
+      console.log('actual left = ' + actual_left);
+      console.log('new top = ' + new_top);
+      console.log('new left = ' + new_left);
+      // Retrieve and change pinata's style
+      $('#pinataImg').animate({
+          top: new_top,
+          left: new_left,
+          opacity: '1'
+        }, 800, function() {
         });
     }
   });
