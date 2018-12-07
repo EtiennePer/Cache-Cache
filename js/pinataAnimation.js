@@ -6,6 +6,7 @@ $(function() {
 
   var discovered = false;
   var clicked = false;
+  var firstPinataLife = 5;
 
   // When the button is hover (discover the pinata a little)
   $('.pinataHider').mouseover(function() {
@@ -63,8 +64,7 @@ $(function() {
     }
   });
 
-  // If the little pinata is clicked
-  $("#pinataImg").click(function() {
+  function clickPinataEvent(){
     if (clicked == false) {
       clicked = true;
 
@@ -85,7 +85,22 @@ $(function() {
     }
     else{
       //Enlever un point de vie
+      firstPinataLife -= 1;
+      if(firstPinataLife == 4){
+        $(this).attr('src', 'images/Fortnite_llama_pinata_Yellow.png');
+      }
+      if(firstPinataLife == 2){
+        $(this).attr('src', 'images/Fortnite_llama_pinata_Red.png');
 
+      }
+
+      if(firstPinataLife == 0){
+        $(this).remove();
+      }
     }
-  });
+  }
+
+  // If the little pinata is clicked
+  $(".pinataImg").click(clickPinataEvent);
+
 });

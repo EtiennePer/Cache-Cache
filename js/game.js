@@ -28,7 +28,6 @@ function launchGame(){
     pinatas.forEach(function(pin) {
       // Simulate click on the pinata for make it move
       move(pin.img);
-	  console.log("ID: "+pin.img.id)
     });
 
   }, 1000);
