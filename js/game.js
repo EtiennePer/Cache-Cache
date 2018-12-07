@@ -1,13 +1,17 @@
 
 var pinatas = [];
+var wavecounter = 0;
 
 function launchGame(){
-    var imgPinata = document.getElementById("pinataImg");
-    pinatas.push(imgPinata);
-    while(pinatas.length!=0){
-        move(imgPinata)
-        pinatas.splice(0, 1)
-    }
+  var t = new Timer(document.getElementById('loader'), document.getElementById('border'), "tim", 1000);
+
+  var x = setInterval(function() {
+
+    wavecounter = timerUpdate(t, wavecounter);
+
+    // Simulate click on the pinata
+    $('#pinataImg').click();
+  }, 100);
 }
 
 function move(imgPinata){

@@ -78,13 +78,11 @@ $(function() {
       var rd_y = Math.random() *  250;
       var rd_plusormin = Math.floor(Math.random() * 2);
 
-      var screenWidth = $(window).width();
-      var screenHeight = $(window).height();
+      var screenWidth = $(window).width() - 100;
+      var screenHeight = $(window).height() - 100;
 
       var actual_top = $('#pinataImg').css('top');
       var actual_left = $('#pinataImg').css('left');
-
-      console.log('rd_plusormin = ' + rd_plusormin);
 
       if(rd_plusormin == 0){
         var new_top = parseInt(actual_top) + rd_x;
@@ -101,10 +99,7 @@ $(function() {
       if(new_left <= 0 || new_left >= screenWidth){
         new_left = actual_left;
       }
-      console.log('actual top = ' + actual_top);
-      console.log('actual left = ' + actual_left);
-      console.log('new top = ' + new_top);
-      console.log('new left = ' + new_left);
+
       // Retrieve and change pinata's style
       $('#pinataImg').animate({
           top: new_top,
