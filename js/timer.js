@@ -67,10 +67,15 @@ function pinataClick(event){
     if(event.target != null && pinata.img.id == event.target.id){
       // -1 life point
       pinata.life -= 1;
-      console.log('LIFE -1');
+
+      if(pinata.life == 4){
+        pinata.img.src = "images/Fortnite_llama_pinata_Yellow.png";
+      }
+      if(pinata.life == 2){
+        pinata.img.src = "images/Fortnite_llama_pinata_Red.png";
+      }
 
       if(pinata.life == 0){
-        console.log('LIFE ZEROOOOOOO');
         pinata.img.parentNode.removeChild(pinata.img);
       }
     }
