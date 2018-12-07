@@ -3,9 +3,13 @@
  * légèrement visible.
  */
 $(function() {
+
   var discovered = false;
   var clicked = false;
 
+  $('#testSvg').click(function(){
+    console.log('test');
+  });
   // When the button is hover (discover the pinata a little)
   $('.pinataHider').mouseover(function() {
 
