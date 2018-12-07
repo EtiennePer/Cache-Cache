@@ -53,7 +53,6 @@ function timerUpdate(t, wavecounter){
       id+=1;
       document.body.appendChild(newPinata.img);
       pinatas.push(newPinata);
-      console.log(pinatas)
     }
 	t.draw(angle);
 	return wavecounter;
