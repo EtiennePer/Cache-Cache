@@ -3,7 +3,7 @@
 Ettienne Pericat, Sebastian San-Simon, Guilhem Susa 
 
 ## Installation en local
-Notre application peut être accéder sur le site : 
+Notre application peut être accéder sur le site : https://etienneper.github.io/Cache-Cache/
 Ou en clonnant notre git en local, puis en lancant le index.html
 
 ## Choix techniques
