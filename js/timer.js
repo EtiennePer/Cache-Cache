@@ -23,27 +23,28 @@ function Timer(loader, border, timerID, roundTime) {
 	  loader.setAttribute( 'd', anim );
 	  border.setAttribute( 'd', anim );	
 	};
+	this.reset = function(){
+	this.countDownTime = new Date().getTime()+this.roundTime;
+  }
 }
 
-function timerUpdate(){
+function timerUpdate(t, wavecounter){
 	// Get current time
     var now = new Date().getTime();
     
     // Find the distance between now and the count down date
     var distance = t.countDownTime - now;
-    
-    // Output the result in an element with id="demo"
-    //document.getElementById("demo").innerHTML = distance;
+   
     let distance2 = Math.abs(distance - t.roundTime);
     let angle = distance2* (360/t.roundTime);
-    document.getElementById("demo").innerHTML = distance2;
     
     // If the count down is over, write some text 
     if (distance < 0) {
-        clearInterval(x);
-        document.getElementById("demo").innerHTML = "BOUM";
+		t.reset();
+		wavecounter=wavecounter+1;
     }
 	t.draw(angle);
+	return wavecounter;
 }
 function toggleTimer(id){
 	if(this.visible){
