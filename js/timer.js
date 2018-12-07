@@ -50,14 +50,33 @@ function timerUpdate(t, wavecounter){
       newPinata.img.src="./images/Fortnite_llama_pinata.svg";
       newPinata.img.id="pinataImg"+id;
       newPinata.img.className="pinataImg";
+      newPinata.img.onclick = pinataClick(newPinata);
       id+=1;
       document.body.appendChild(newPinata.img);
+      $('.pinataImg').click(pinataClick);
       pinatas.push(newPinata);
-      console.log(pinatas)
     }
 	t.draw(angle);
 	return wavecounter;
 }
+
+function pinataClick(event){
+  for (var i = 0; i < pinatas.length; i++) {
+    var pinata = pinatas[i];
+
+    if(event.target != null && pinata.img.id == event.target.id){
+      // -1 life point
+      pinata.life -= 1;
+      console.log('LIFE -1');
+
+      if(pinata.life == 0){
+        console.log('LIFE ZEROOOOOOO');
+        pinata.img.parentNode.removeChild(pinata.img);
+      }
+    }
+  }
+}
+
 function toggleTimer(id){
 	if(this.visible){
 		this.visible = false;

@@ -63,8 +63,7 @@ $(function() {
     }
   });
 
-  // If the little pinata is clicked
-  $("#pinataImg").click(function() {
+  function clickPinataEvent(){
     if (clicked == false) {
       clicked = true;
 
@@ -85,7 +84,12 @@ $(function() {
     }
     else{
       //Enlever un point de vie
-
+      console.log('CLIIIIIIIIIIIIIICK');
+      console.log(pinatas);
     }
-  });
+  }
+  
+  // If the little pinata is clicked
+  $(".pinataImg").click(clickPinataEvent);
+
 });
