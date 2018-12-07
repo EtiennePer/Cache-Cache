@@ -95,6 +95,18 @@ $(function() {
       }
 
       if(firstPinataLife == 0){
+        var video = document.createElement('video');
+        video.style.width = "15rem";
+        video.style.height = "15rem";
+        video.style.left = $(this).css('left');
+        video.style.top = $(this).css('top');
+        video.style.position = 'absolute';
+
+        var source = document.createElement('source');
+        source.setAttribute('src', "images/awesome.webm");
+        video.appendChild(source);
+        $(this).parent().append(video);
+        video.play();
         $(this).remove();
       }
     }

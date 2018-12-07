@@ -76,6 +76,18 @@ function pinataClick(event){
       }
 
       if(pinata.life == 0){
+        var video = document.createElement('video');
+        video.style.width = "15rem";
+        video.style.height = "15rem";
+        video.style.left = pinata.img.style.left;
+        video.style.top = pinata.img.style.top;
+        video.style.position = 'absolute';
+
+        var source = document.createElement('source');
+        source.setAttribute('src', "images/awesome.webm");
+        video.appendChild(source);
+        pinata.img.parentNode.appendChild(video);
+        video.play();
         pinata.img.parentNode.removeChild(pinata.img);
       }
     }

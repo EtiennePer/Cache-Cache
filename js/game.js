@@ -2,6 +2,7 @@
 var pinatas = [];
 var wavecounter = 0;
 var id = 2;
+var helped=false;
 
 function launchGame(){
   var t = new Timer(document.getElementById('loader'), document.getElementById('border'), "tim", 3000);
@@ -16,12 +17,14 @@ function launchGame(){
     if(pinatas == []){
         clearInterval(x);
     }
-    if (wavecounter / 120 == 0 && wavecounter != 0){
-      // new bouton ALED
+    if (wavecounter == 4 && !helped){
+
       var boutonHelp = document.createElement("button");
-      boutonHelp.value ="Abandonner";
+      boutonHelp.innerHTML ="Abandonner";
       boutonHelp.className="boutonHelp";
+      boutonHelp.setAttribute("onclick","window.location.reload()");
       document.body.appendChild(boutonHelp);
+      helped = true;
     }
     wavecounter = timerUpdate(t, wavecounter);
 
@@ -31,7 +34,7 @@ function launchGame(){
     });
 
   }, 1000);
-}
+}// new bouton ALED
 
 function move(pi){
   var rd_x = Math.random() *  250;
