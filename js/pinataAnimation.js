@@ -14,34 +14,44 @@ $(function() {
       discovered = true;
       var rd = Math.floor(Math.random() * 4);
 
+      var bt_top = $('.pinataHider').css('top');
+      var bt_left = $('.pinataHider').css('left');
+      var bt_width = $('.pinataHider').width();
+      var bt_height = $('.pinataHider').height();
+
+      var bt_top = $('.pinataHider').css('top');
+      var bt_left = $('.pinataHider').css('left');
+      var image_width = $('#pinataImg').width();
+      var image_height = $('#pinataImg').height();
+
       // Choose a random animation
       start_animations = {
         top: '50%',
         left: '50%',
         opacity: '0'
       };
-      if (rd == 0) { // to top
+      if (rd == 0) { // to bottom
         after_animations = {
-          top: '48%',
+          top: parseInt(bt_top) + parseInt(bt_height/2) + parseInt(image_height/2) ,
           left: '50%',
           opacity: '1'
         };
-      } else if (rd == 1) { // to bottom
+      } else if (rd == 1) { // to top
         after_animations = {
-          top: '52%',
+          top: parseInt(bt_top) - parseInt(bt_height/2) + parseInt(image_height/2) ,
           left: '50%',
           opacity: '1'
         };
       } else if (rd == 2) { // to left
         after_animations = {
           top: '50%',
-          left: '30%',
+          left: parseInt(bt_left) - parseInt(bt_width/2) + parseInt(image_width/2),
           opacity: '1'
         };
       } else if (rd == 3) {
         after_animations = { // to right
           top: '50%',
-          left: '70%',
+          left: parseInt(bt_left) + parseInt(bt_width) - parseInt(image_width/2),
           opacity: '1'
         };
       }
